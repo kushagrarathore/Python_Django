@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>signin</title>
+</head>
+<link rel="stylesheet" type="text/css" href="/static/bootstrap.min.css">
+<style type="text/css">
+	body {
+		text-align: center;
+		position: relative;
+		margin: 20px;
+		background: #383131;
+
+	}
+.site-form{
+	width: 100%;
+	padding: 12px 20px;
+	margin: 0px 0;
+	box-sizing: border-box;
+	border-radius: 4px;
+
+}
+.tx2{
+	color: red;
+	box-sizing: content-box;
+	font-size:20px;
+	margin-bottom: 10px;
+	padding-left: 10px;
+	border-radius: 5px;
+}
+
+.signin {
+	border:1px solid rgba(255,255,255,0.3);
+	border-radius: 5px;
+	padding: 3em;
+	position: relative;
+}
+.name{
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: lighter;
+	color: #fff;
+	font-size: 50px;
+	text-align: center;
+	margin-top: 0;
+	letter-spacing: 2.3px;
+}
+.comment{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 40px;
+	letter-spacing: 2.3px;
+	color: #fff;
+}
+
+@media(max-width: 768px) {
+	button, input, optgroup, select, textarea {
+    margin: 0;
+    font-family: unset;
+    font-size: medium;
+    line-height: medium;
+    position: relative;
+}
+}
+</style>
+<body>
+	<div class="signin">
+
+<form class="site-form" method="POST" action="{% url 'signin'%}">
+	{% csrf_token %}
+	<div class="tx1">
+		<label class="name" > Name</label>
+	{{form.name}}
+    </div>
+    <div class="tx2">
+    	<label class="comment">Comment</label>
+    	{{form.comment}}
+    </div>
+    <button type="button" class="btn btn-secondary">Post</button>
+	</div>
+</form>
+</body>
+</html>
